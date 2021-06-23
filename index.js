@@ -12,7 +12,7 @@ const { platform } = require('os')
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-function u(fsPath, addTrailingSlash = false) {
+function upath(fsPath, addTrailingSlash = false) {
   if (!fsPath) {
     return ''
   }
@@ -31,6 +31,6 @@ function u(fsPath, addTrailingSlash = false) {
 }
 
 module.exports = {
-  u,
-  upath: u,
+  upath,
+  u: upath,
 }
