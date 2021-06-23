@@ -21,7 +21,8 @@ u(fsPath: string, addTrailingSlash: boolean = false): string
 ```js
 fsPath: string // a string that represent the path to process,
 
-addTrailingSlash = false // a boolean that represents whether a trailing slash should be added to the fsPath or not
+addTrailingSlash: boolean = false
+// a boolean that represents whether a trailing slash should be added to the fsPath or not
 ```
 
 <br>
