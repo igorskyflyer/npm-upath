@@ -8,7 +8,23 @@
 
 ### Usage
 
-Provides a single function, called **upath()** with an alias **u()** for your convenience.
+<br>
+
+Install it first by doing
+
+```shell
+npm i @igor.dvlpr/upath
+```
+
+and call `require` in your code, i.e.:
+
+```js
+const { u } = require('@igor.dvlpr/upath')
+
+// do something cool with it
+```
+
+A single function is provided, called `upath()` with an alias `u()` for your convenience.
 
 ```js
 upath(fsPath: string, addTrailingSlash: boolean = false): string
@@ -16,10 +32,10 @@ upath(fsPath: string, addTrailingSlash: boolean = false): string
 u(fsPath: string, addTrailingSlash: boolean = false): string
 ```
 
-> Parameters
+Parameters
 
 ```js
-fsPath: string // a string that represent the path to process,
+fsPath: string // a string that represents the path to process,
 
 addTrailingSlash: boolean = false
 // a boolean that represents whether a trailing slash should be added to the fsPath or not
