@@ -2,7 +2,7 @@
 
 <br>
 
-🎍 Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in path.normalize(). 🧬
+🎍 Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in `path.normalize()`. 🧬
 
 <br>
 
