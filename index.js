@@ -24,7 +24,7 @@ function upath(fsPath, addTrailingSlash = false) {
     fsPath += '/'
   }
 
-  if (platform() == 'win32') {
+  if (platform() === 'win32') {
     fsPath = fsPath.replace(pattern, '\\')
   } else {
     fsPath = fsPath.replace(pattern, '/')
