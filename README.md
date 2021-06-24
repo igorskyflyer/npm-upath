@@ -71,7 +71,7 @@ console.log(u('/usr/bin', true)) // returns "/usr/bin/"
 
 <br>
 
-Since `v.1.0.3` a string property named `slash` is exposed as well, provides as easy way to access file path OS-specific delimiter.
+Since `v.1.0.3` a string property named `slash` is exposed as well, provides an easy way to access file path OS-specific delimiter.
 
 > On Windows `slash = '\\'`.
 
