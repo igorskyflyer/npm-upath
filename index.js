@@ -1,5 +1,8 @@
 const { platform } = require('os')
 
+// let's cache the pattern
+const pattern = /\/+/g
+
 /**
  * Returns a proper file path for both UNIX-like
  * and Windows operating systems.
@@ -22,9 +25,9 @@ function upath(fsPath, addTrailingSlash = false) {
   }
 
   if (platform() == 'win32') {
-    fsPath = fsPath.replace(/\/+/g, '\\')
+    fsPath = fsPath.replace(pattern, '\\')
   } else {
-    fsPath = fsPath.replace(/\/+/g, '/')
+    fsPath = fsPath.replace(pattern, '/')
   }
 
   return fsPath
