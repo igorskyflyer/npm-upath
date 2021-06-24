@@ -6,6 +6,10 @@
 
 <br>
 
+> Why `uPath`? Simple. Working with file paths in **Windows** + **JavaScript** is a hassle. By calling `u()`, the file path you provided is converted to your OS-preferred file path format, i.e. you can get away with writing "`C:/Users/JohnDoe/`" without having to worry about those backslashes that **Windows** uses. On the other hand, **UNIX-like** slashes in file paths are left as-is. An extra feature that `uPath` provides is redundant trailing slash removal.
+
+<br>
+
 ### Usage
 
 <br>
