@@ -68,3 +68,11 @@ console.log(u('/mnt/')) // returns "/mnt/"
 console.log(u('/usr/bin/////////')) // returns "/usr/bin/"
 console.log(u('/usr/bin', true)) // returns "/usr/bin/"
 ```
+
+<br>
+
+Since `v.1.0.3` a string property named `slash` is exposed as well, provides as easy way to access file path OS-specific delimiter.
+
+> On Windows `slash = '\\'`.
+
+> On UNIX-like `slash = '/'`.
