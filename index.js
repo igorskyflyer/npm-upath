@@ -10,7 +10,7 @@ const pattern = /\/+/g
  * Does not resolve paths and UNC paths
  * are not supported for now!
  *
- * **Note**: _upath()_ is an alias of _u()_.
+ * **Note**: _u()_ is an alias of _upath()_.
  * @param {string} fsPath
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
