@@ -1,6 +1,6 @@
 {
 	"name": "@igor.dvlpr/upath",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in path.normalize().",
 	"main": "index.js",
 	"scripts": {
