@@ -50,7 +50,7 @@ addTrailingSlash: boolean = false
 #### Example - Windows
 
 ```js
-const { u } = require('@igor.dvlpr/upath)
+const { u } = require('@igor.dvlpr/upath')
 
 console.log(u('C:/')) // returns "C:\\"
 console.log(u('C:/WINDOWS//////')) // returns "C:\\WINDOWS\\"
@@ -62,7 +62,7 @@ console.log(u('C:/Users', true)) // returns "C:\\Users\\"
 #### Example - UNIX-like
 
 ```js
-const { u } = require('@igor.dvlpr/upath)
+const { u } = require('@igor.dvlpr/upath')
 
 console.log(u('/mnt/')) // returns "/mnt/"
 console.log(u('/usr/bin/////////')) // returns "/usr/bin/"
