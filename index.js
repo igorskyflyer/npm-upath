@@ -2,6 +2,8 @@ const { platform } = require('os')
 
 // let's cache the pattern
 const pattern = /\/+/g
+const isWindows = platform() === 'win32'
+const slash = isWindows ? '\\' : '/'
 
 /**
  * Returns a proper file path for both UNIX-like
@@ -24,16 +26,11 @@ function upath(fsPath, addTrailingSlash = false) {
     fsPath += '/'
   }
 
-  if (platform() === 'win32') {
-    fsPath = fsPath.replace(pattern, '\\')
-  } else {
-    fsPath = fsPath.replace(pattern, '/')
-  }
-
-  return fsPath
+  return fsPath.replace(pattern, slash)
 }
 
 module.exports = {
   upath,
   u: upath,
+  slash,
 }
