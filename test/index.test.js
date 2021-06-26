@@ -1,17 +1,33 @@
 const chai = require('chai').assert
 const { platform } = require('os')
 
-const { u } = require('../index')
+const { u, uw, ux } = require('../index')
 
-describe('upath tests =>', () => {
-  describe('all => ', () => {
+describe('uPath tests =>', () => {
+  describe('any OS => ', () => {
     it('u() should return an empty string', () => {
       chai.equal(u(), '')
+    })
+
+    it('u("") should return an empty string', () => {
+      chai.equal(u(''), '')
+    })
+
+    it('u(null) should return an empty string', () => {
+      chai.equal(u(null), '')
+    })
+
+    it('uw("C:/WINDOWS/System32") should return "C:\\WINDOWS\\System32"', () => {
+      chai.equal(uw('C:/WINDOWS/System32'), 'C:\\WINDOWS\\System32')
+    })
+
+    it('ux("/usr/local") should return "/usr/local"', () => {
+      chai.equal(ux('/usr/local'), '/usr/local')
     })
   }) // all
 
   if (platform() === 'win32') {
-    describe('Windows => ', () => {
+    describe('Windows OS => ', () => {
       it('u("C:/") should return C:\\', () => {
         chai.equal(u('C:/'), 'C:\\')
       })
@@ -39,7 +55,7 @@ describe('upath tests =>', () => {
       })
     }) // windows
   } else {
-    describe('UNIX-like =>', () => {
+    describe('UNIX-like OS =>', () => {
       it('u("/mnt/") should return /mnt/', () => {
         chai.equal(u('/mnt/'), '/mnt/')
       })
