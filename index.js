@@ -1,7 +1,8 @@
 const { platform } = require('os')
+const unc = require('@igor.dvlpr/unc-path')
 
 // let's cache the pattern
-const pattern = /\/+/g
+const pattern = /[\/\\]+/g
 const isWindows = platform() === 'win32'
 const winSlash = '\\'
 const unixSlash = '/'
@@ -16,15 +17,40 @@ const slash = isWindows ? winSlash : unixSlash
  * @returns {string}
  */
 function transform(pathSlash, fsPath, addTrailingSlash = false) {
-  return fsPath.replace(pattern, pathSlash)
+  if (!fsPath) {
+    return ''
+  }
+
+  const isUnc = unc.isValid(fsPath)
+
+  fsPath = fsPath.split(pattern)
+
+  if (fsPath.length < 1) {
+    return ''
+  }
+
+  if (isUnc) {
+    const uncPrefix = fsPath[0]
+
+    if (uncPrefix.charAt(0) !== pathSlash) {
+      fsPath[0] = pathSlash + uncPrefix
+    }
+  }
+
+  fsPath = fsPath.join(pathSlash)
+
+  if (addTrailingSlash && fsPath.charAt(fsPath.length - 1) !== pathSlash) {
+    fsPath += pathSlash
+  }
+
+  return fsPath
 }
 
 /**
  * Returns a proper file path for both UNIX-like
  * and Windows operating systems.
  *
- * Does not resolve paths and UNC paths
- * are not supported for now!
+ * Does not resolve paths!
  *
  * **Note**: _u()_ is an alias of _upath()_.
  * @param {string} fsPath
@@ -32,14 +58,6 @@ function transform(pathSlash, fsPath, addTrailingSlash = false) {
  * @returns {string}
  */
 function upath(fsPath, addTrailingSlash = false) {
-  if (!fsPath) {
-    return ''
-  }
-
-  if (addTrailingSlash) {
-    fsPath += unixSlash
-  }
-
   return transform(slash, fsPath, addTrailingSlash)
 }
 
