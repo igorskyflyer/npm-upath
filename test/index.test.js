@@ -53,6 +53,27 @@ describe('uPath tests =>', () => {
       it('u("C:/WINDOWS\\Boot") should return C:\\WINDOWS\\Boot', () => {
         chai.equal(u('C:/WINDOWS\\Boot'), 'C:\\WINDOWS\\Boot')
       })
+
+      it('u("\\\\ComputerName\\SharedFolder") should return \\\\ComputerName\\SharedFolder', () => {
+        chai.equal(
+          u('\\\\ComputerName\\SharedFolder'),
+          '\\\\ComputerName\\SharedFolder'
+        )
+      })
+
+      it('ux("\\\\ComputerName\\SharedFolder") should return //ComputerName/SharedFolder', () => {
+        chai.equal(
+          ux('\\\\ComputerName\\SharedFolder'),
+          '//ComputerName/SharedFolder'
+        )
+      })
+
+      it('uw("//ComputerName/SharedFolder") should return \\\\ComputerName\\SharedFolder', () => {
+        chai.equal(
+          uw('//ComputerName/SharedFolder'),
+          '\\\\ComputerName\\SharedFolder'
+        )
+      })
     }) // windows
   } else {
     describe('UNIX-like OS =>', () => {
@@ -69,9 +90,30 @@ describe('uPath tests =>', () => {
       })
 
       // attempt to add a trailing slash
-      // to a already trailing slash 😵
+      // to an already trailing slash 😵
       it('u("/usr/bin/", true) should return /usr/bin/', () => {
         chai.equal(u('/usr/bin/', true), '/usr/bin/')
+      })
+
+      it('u("//ComputerName/SharedFolder") should return //ComputerName/SharedFolder', () => {
+        chai.equal(
+          u('//ComputerName/SharedFolder'),
+          '//ComputerName/SharedFolder'
+        )
+      })
+
+      it('uw("//ComputerName/SharedFolder") should return \\\\ComputerName\\SharedFolder', () => {
+        chai.equal(
+          uw('//ComputerName/SharedFolder'),
+          '\\\\ComputerName\\SharedFolder'
+        )
+      })
+
+      it('ux("\\\\ComputerName\\SharedFolder") should return //ComputerName/SharedFolder', () => {
+        chai.equal(
+          ux('\\\\ComputerName\\SharedFolder'),
+          '//ComputerName/SharedFolder'
+        )
       })
     }) // unix-like
   }
