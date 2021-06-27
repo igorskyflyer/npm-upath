@@ -1,7 +1,5 @@
 ## uPath
 
-<br>
-
 <p align="center">
 	<img src="https://github.com/igorskyflyer/npm-upath/raw/main/assets/uPath.png" alt="uPath logo" width="180" height="180">
 </p>
@@ -12,8 +10,7 @@
 
 > Why `uPath`? Simple. Working with file paths inside `String`s in **Windows** + **JavaScript** is a hassle. By calling `u()`, the file path you provided is converted to your OS-preferred file path format, i.e. you can get away with writing "`C:/Users/JohnDoe/`" without having to worry about those backslashes that **Windows** uses. On the other hand, **UNIX-like** slashes in file paths are left as-is. An extra feature that `uPath` provides is redundant trailing slash removal.
 
-✨Since version `1.1.0` you can now format paths for specific OS (Windows/UNIX-like) while ignoring the host OS.
-&nbsp;&nbsp;&nbsp;&nbsp; See `uw()` and `ux()` below.
+✨Since version `1.2.0` support for UNC paths has been added, thanks to [unc-path](https://www.npmjs.com/package/@igor.dvlpr/unc-path).
 
 <br>
 
@@ -95,6 +92,8 @@ const { u } = require('@igor.dvlpr/upath')
 console.log(u('C:/')) // returns 'C:\\'
 console.log(u('C:/WINDOWS//////')) // returns 'C:\\WINDOWS\\'
 console.log(u('C:/Users', true)) // returns 'C:\\Users\\'
+console.log(u('\\\\ComputerName\\SharedFolder')) // returns '\\\\ComputerName\\SharedFolder'
+console.log(u('//ComputerName/SharedFolder')) // returns '\\\\ComputerName\\SharedFolder'
 ```
 
 <br>
@@ -107,6 +106,8 @@ const { u } = require('@igor.dvlpr/upath')
 console.log(u('/mnt/')) // returns '/mnt/'
 console.log(u('/usr/bin/////////')) // returns '/usr/bin/'
 console.log(u('/usr/bin', true)) // returns '/usr/bin/'
+console.log(u('//ComputerName/SharedFolder')) // returns '//ComputerName/SharedFolder'
+console.log(u('\\\\ComputerName\\SharedFolder')) // returns '//ComputerName/SharedFolder'
 ```
 
 <br>
@@ -139,6 +140,7 @@ addTrailingSlash: boolean = false
 const { uw } = require('@igor.dvlpr/upath')
 
 console.log(uw('C:/WINDOWS/System32')) // returns 'C:\\WINDOWS\\System32'
+console.log(uw('//ComputerName/SharedFolder')) // returns '\\\\ComputerName\\SharedFolder'
 ```
 
 <br>
@@ -171,6 +173,8 @@ addTrailingSlash: boolean = false
 const { ux } = require('@igor.dvlpr/upath')
 
 console.log(ux('/usr/local')) // returns '/usr/local'
+console.log(ux('\\\\ComputerName\\SharedFolder'))
+// returns '//ComputerName/SharedFolder'
 ```
 
 <br>
