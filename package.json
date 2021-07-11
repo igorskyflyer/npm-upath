@@ -6,7 +6,8 @@
 	"types": "./dist/index.d.ts",
 	"files": [
 		"index.js",
-		"dist/"
+		"dist/",
+		"README.md"
 	],
 	"scripts": {
 		"test": "mocha --slow 0",
