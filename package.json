@@ -1,8 +1,13 @@
 {
 	"name": "@igor.dvlpr/upath",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in path.normalize().",
 	"main": "index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"index.js",
+		"dist/"
+	],
 	"scripts": {
 		"test": "mocha --slow 0",
 		"party": "npm test && npm publish --access public"
@@ -28,7 +33,8 @@
 	"devDependencies": {
 		"@types/node": "^15.12.4",
 		"chai": "^4.3.4",
-		"mocha": "^9.0.1"
+		"mocha": "^9.0.1",
+		"typescript": "^4.3.5"
 	},
 	"dependencies": {
 		"@igor.dvlpr/unc-path": "^1.0.1"
