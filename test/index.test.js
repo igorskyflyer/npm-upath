@@ -1,11 +1,12 @@
-const chai = require('chai').assert
-const { platform } = require('os')
+import { assert as chai } from 'chai'
+import { platform } from 'os'
 
-const { u, uw, ux } = require('../index')
+import { u, uw, ux } from '../src/main.js'
 
 describe('uPath tests =>', () => {
   describe('any OS => ', () => {
     it('u() should return an empty string', () => {
+      // @ts-ignore
       chai.equal(u(), '')
     })
 
@@ -14,6 +15,7 @@ describe('uPath tests =>', () => {
     })
 
     it('u(null) should return an empty string', () => {
+      // @ts-ignore
       chai.equal(u(null), '')
     })
 
@@ -55,24 +57,15 @@ describe('uPath tests =>', () => {
       })
 
       it('u("\\\\ComputerName\\SharedFolder") should return \\\\ComputerName\\SharedFolder', () => {
-        chai.equal(
-          u('\\\\ComputerName\\SharedFolder'),
-          '\\\\ComputerName\\SharedFolder'
-        )
+        chai.equal(u('\\\\ComputerName\\SharedFolder'), '\\\\ComputerName\\SharedFolder')
       })
 
       it('ux("\\\\ComputerName\\SharedFolder") should return //ComputerName/SharedFolder', () => {
-        chai.equal(
-          ux('\\\\ComputerName\\SharedFolder'),
-          '//ComputerName/SharedFolder'
-        )
+        chai.equal(ux('\\\\ComputerName\\SharedFolder'), '//ComputerName/SharedFolder')
       })
 
       it('uw("//ComputerName/SharedFolder") should return \\\\ComputerName\\SharedFolder', () => {
-        chai.equal(
-          uw('//ComputerName/SharedFolder'),
-          '\\\\ComputerName\\SharedFolder'
-        )
+        chai.equal(uw('//ComputerName/SharedFolder'), '\\\\ComputerName\\SharedFolder')
       })
     }) // windows
   } else {
@@ -96,24 +89,15 @@ describe('uPath tests =>', () => {
       })
 
       it('u("//ComputerName/SharedFolder") should return //ComputerName/SharedFolder', () => {
-        chai.equal(
-          u('//ComputerName/SharedFolder'),
-          '//ComputerName/SharedFolder'
-        )
+        chai.equal(u('//ComputerName/SharedFolder'), '//ComputerName/SharedFolder')
       })
 
       it('uw("//ComputerName/SharedFolder") should return \\\\ComputerName\\SharedFolder', () => {
-        chai.equal(
-          uw('//ComputerName/SharedFolder'),
-          '\\\\ComputerName\\SharedFolder'
-        )
+        chai.equal(uw('//ComputerName/SharedFolder'), '\\\\ComputerName\\SharedFolder')
       })
 
       it('ux("\\\\ComputerName\\SharedFolder") should return //ComputerName/SharedFolder', () => {
-        chai.equal(
-          ux('\\\\ComputerName\\SharedFolder'),
-          '//ComputerName/SharedFolder'
-        )
+        chai.equal(ux('\\\\ComputerName\\SharedFolder'), '//ComputerName/SharedFolder')
       })
     }) // unix-like
   }
