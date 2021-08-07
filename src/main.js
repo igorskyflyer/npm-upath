@@ -1,5 +1,5 @@
-const { platform } = require('os')
-const unc = require('@igor.dvlpr/unc-path')
+import { platform } from 'os'
+import { isValid } from '@igor.dvlpr/unc-path'
 
 // let's cache the pattern
 const pattern = /[\/\\]+/g
@@ -21,23 +21,23 @@ function transform(pathSlash, fsPath, addTrailingSlash = false) {
     return ''
   }
 
-  const isUnc = unc.isValid(fsPath)
+  const isUnc = isValid(fsPath)
 
-  fsPath = fsPath.split(pattern)
+  const components = fsPath.split(pattern)
 
-  if (fsPath.length < 1) {
+  if (components.length < 1) {
     return ''
   }
 
   if (isUnc) {
-    const uncPrefix = fsPath[0]
+    const uncPrefix = components[0]
 
     if (uncPrefix.charAt(0) !== pathSlash) {
-      fsPath[0] = pathSlash + uncPrefix
+      components[0] = pathSlash + uncPrefix
     }
   }
 
-  fsPath = fsPath.join(pathSlash)
+  fsPath = components.join(pathSlash)
 
   if (addTrailingSlash && fsPath.charAt(fsPath.length - 1) !== pathSlash) {
     fsPath += pathSlash
@@ -57,9 +57,11 @@ function transform(pathSlash, fsPath, addTrailingSlash = false) {
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-function upath(fsPath, addTrailingSlash = false) {
+export function upath(fsPath, addTrailingSlash = false) {
   return transform(slash, fsPath, addTrailingSlash)
 }
+
+export { upath as u }
 
 /**
  * Returns a proper file path for Windows operating system
@@ -69,7 +71,7 @@ function upath(fsPath, addTrailingSlash = false) {
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-function uw(fsPath, addTrailingSlash = false) {
+export function uw(fsPath, addTrailingSlash = false) {
   return transform(winSlash, fsPath, addTrailingSlash)
 }
 
@@ -81,14 +83,6 @@ function uw(fsPath, addTrailingSlash = false) {
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-function ux(fsPath, addTrailingSlash = false) {
+export function ux(fsPath, addTrailingSlash = false) {
   return transform(unixSlash, fsPath, addTrailingSlash)
-}
-
-module.exports = {
-  upath,
-  u: upath,
-  uw,
-  ux,
-  slash,
 }
