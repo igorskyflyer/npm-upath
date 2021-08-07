@@ -6,7 +6,8 @@ const pattern = /[\/\\]+/g
 const isWindows = platform() === 'win32'
 const winSlash = '\\'
 const unixSlash = '/'
-const slash = isWindows ? winSlash : unixSlash
+
+export const slash = isWindows ? winSlash : unixSlash
 
 /**
  * Transforms the given path.
