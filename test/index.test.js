@@ -1,7 +1,6 @@
-import { assert as chai } from 'chai'
-import { platform } from 'os'
-
-import { u, uw, ux } from '../src/main.js'
+const chai = require('chai').assert
+const { platform } = require('os')
+const { u, uw, ux } = require('../src/index.js')
 
 describe('uPath tests =>', () => {
   describe('any OS => ', () => {
