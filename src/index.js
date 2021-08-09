@@ -1,5 +1,5 @@
-import { platform } from 'os'
-import { isValid } from '@igor.dvlpr/unc-path'
+const { platform } = require('os')
+const { isValid } = require('@igor.dvlpr/unc-path')
 
 // let's cache the pattern
 const pattern = /[\/\\]+/g
@@ -7,7 +7,7 @@ const isWindows = platform() === 'win32'
 const winSlash = '\\'
 const unixSlash = '/'
 
-export const slash = isWindows ? winSlash : unixSlash
+const slash = isWindows ? winSlash : unixSlash
 
 /**
  * Transforms the given path.
@@ -58,11 +58,9 @@ function transform(pathSlash, fsPath, addTrailingSlash = false) {
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-export function upath(fsPath, addTrailingSlash = false) {
+function upath(fsPath, addTrailingSlash = false) {
   return transform(slash, fsPath, addTrailingSlash)
 }
-
-export { upath as u }
 
 /**
  * Returns a proper file path for Windows operating system
@@ -72,7 +70,7 @@ export { upath as u }
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-export function uw(fsPath, addTrailingSlash = false) {
+function uw(fsPath, addTrailingSlash = false) {
   return transform(winSlash, fsPath, addTrailingSlash)
 }
 
@@ -84,6 +82,14 @@ export function uw(fsPath, addTrailingSlash = false) {
  * @param {boolean} [addTrailingSlash=false]
  * @returns {string}
  */
-export function ux(fsPath, addTrailingSlash = false) {
+function ux(fsPath, addTrailingSlash = false) {
   return transform(unixSlash, fsPath, addTrailingSlash)
+}
+
+module.exports = {
+  upath,
+  u: upath,
+  uw,
+  ux,
+  slash,
 }
