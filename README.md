@@ -194,25 +194,25 @@ Licensed under the MIT license which is available here, [MIT license](https://gi
 
 ## 🧬 Related
 
-[]()
+[@igor.dvlpr/duoscribi](https://www.npmjs.com/package/@igor.dvlpr/duoscribi)
 
-> __
+> _✒ DúöScríbî allows you to convert letters with diacritics to regular letters. 🤓_
 
-[]()
+[@igor.dvlpr/node-clone-js](https://www.npmjs.com/package/@igor.dvlpr/node-clone-js)
 
-> __
+> _🧬 A lightweight JavaScript utility allowing deep copy-by-value of nested objects, arrays and arrays of objects. 🪁_
 
-[]()
+[@igor.dvlpr/str-is-in](https://www.npmjs.com/package/@igor.dvlpr/str-is-in)
 
-> __
+> _🧵 Provides ways of checking whether a String is present in an Array of Strings using custom Comparators. 🔍_
 
-[]()
+[@igor.dvlpr/odin](https://www.npmjs.com/package/@igor.dvlpr/odin)
 
-> __
+> _🔱 Odin is an Object wrapper that allows you to create objects and set their attributes - all at once! 🔺_
 
-[]()
+[@igor.dvlpr/mp3size](https://www.npmjs.com/package/@igor.dvlpr/mp3size)
 
-> __
+> _🧮 Calculates an estimated file size of Mp3 files. 🎶_
 
 <br>
 <br>
