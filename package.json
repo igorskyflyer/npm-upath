@@ -1,55 +1,51 @@
 {
 	"name": "@igor.dvlpr/upath",
-	"version": "2.1.2",
+	"version": "3.0.0",
 	"description": "🎍 Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in path.normalize(). 🧬",
-	"engines": {
-		"node": ">=12.17"
-	},
 	"sideEffects": false,
-	"main": "./src/index",
-	"exports": {
-		".": {
-			"require": "./src/index.js",
-			"import": "./src/index.mjs"
-		}
+	"engines": {
+		"node": ">=20.0"
 	},
-	"module": "./src/index.mjs",
-	"types": "./dist/index",
+	"types": "./dist/index.d.mts",
+	"main": "./dist/index.mjs",
+	"module": "./dist/index.mjs",
 	"files": [
-		"dist",
-		"src"
+		"dist"
 	],
 	"scripts": {
-		"test": "mocha",
-		"pub": "npm test && tsc && npm publish --access public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/igorskyflyer/npm-upath.git"
+		"build": "tsc",
+		"test": "vitest --run",
+		"debug": "vitest",
+		"pub": "npm test && npm run build && npm publish --access public"
 	},
 	"keywords": [
 		"upath",
+		"µPath",
 		"file",
 		"path",
 		"os",
 		"utility",
-		"igordvlpr"
+		"igorskyflyer",
+		"igor.dvlpr"
 	],
-	"author": "Igor Dimitrijević",
 	"license": "MIT",
+	"author": "Igor Dimitrijević <igor.dvlpr@gmail.com> (https://github.com/igorskyflyer)",
+	"funding": "https://ko-fi.com/igorskyflyer",
+	"homepage": "https://github.com/igorskyflyer/npm-upath",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/igorskyflyer/npm-upath.git"
+	},
 	"bugs": {
 		"url": "https://github.com/igorskyflyer/npm-upath/issues"
 	},
-	"homepage": "https://github.com/igorskyflyer/npm-upath#readme",
-	"devDependencies": {
-		"@types/chai": "^4.3.3",
-		"@types/mocha": "^9.1.1",
-		"@types/node": "^12.17.0",
-		"chai": "^4.3.6",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4"
-	},
 	"dependencies": {
-		"@igor.dvlpr/unc-path": "^2.1.0"
+		"@igor.dvlpr/unc-path": "^2.1.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^20.14.9",
+		"typescript": "^5.5.3",
+		"vitest": "^1.6.0"
 	}
 }
