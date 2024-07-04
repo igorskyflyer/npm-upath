@@ -1,8 +1,7 @@
 // Author: Igor Dimitrijević (@igorskyflyer)
 
-import { platform } from 'node:os'
-// @ts-ignore
 import { isValid } from '@igor.dvlpr/unc-path'
+import { platform } from 'node:os'
 
 // let's cache the pattern
 const pattern: RegExp = /[\/\\]+/g
