@@ -1,56 +1,55 @@
-## uPath
+# uPath
 
 <p align="center">
 	<img src="https://github.com/igorskyflyer/npm-upath/raw/main/assets/uPath.png" alt="uPath logo" width="180" height="180">
 </p>
 
-🎍 Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in `path.normalize()`. 🧬
+🎍 Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in path.normalize(). 🧬
 
+<br>
+<br>
+
+<div align="center">
+	<blockquote>
+		<h4>💖 Support further development</h4>
+		<span>I work hard for every project, including this one and your support means a lot to me!
+		<br>
+		Consider buying me a coffee. ☕
+		<br>
+		<strong>Thank you for supporting my efforts! 🙏😊</strong></span>
+		<br>
+		<br>
+		<a href="https://ko-fi.com/igorskyflyer" target="_blank"><img src="https://raw.githubusercontent.com/igorskyflyer/igorskyflyer/main/assets/ko-fi.png" alt="Donate to igorskyflyer" width="150"></a>
+		<br>
+		<br>
+		<a href="https://github.com/igorskyflyer"><em>@igorskyflyer</em></a>
+		<br>
+		<br>
+	</blockquote>
+</div>
+
+<br>
 <br>
 
 > Why `uPath`? Simple. Working with file paths inside `String`s in **Windows** + **JavaScript** is a hassle. By calling `u()`, the file path you provided is converted to your OS-preferred file path format, i.e. you can get away with writing "`C:/Users/JohnDoe/`" without having to worry about those backslashes that **Windows** uses. On the other hand, **UNIX-like** slashes in file paths are left as-is. An extra feature that `uPath` provides is redundant trailing slash removal.
 
 <br>
 
-✨Since version `2.0.0` `upath` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
-
 ✨Since version `1.2.0` support for UNC paths has been added, thanks to [unc-path](https://www.npmjs.com/package/@igor.dvlpr/unc-path).
 
 <br>
 
-### Usage
+## 🕵🏼 Usage
 
-<br>
-
-Install it first by doing
+Install it by executing:
 
 ```shell
-npm i @igor.dvlpr/upath
-```
-
-and call `require` in your code, i.e.:
-
-```js
-// for CommonJS
-const upath = require('@igor.dvlpr/upath')
-// or for ESM
-import * as upath from '@igor.dvlpr/upath'
-
-// or destructure the object and import only needed function(s)
-// e.g.
-// for CommonJS
-const { u } = require('@igor.dvlpr/upath')
-// or for ESM
-import { u } from '@igor.dvlpr/upath'
-
-// do something cool with it
+npm i "@igor.dvlpr/upath"
 ```
 
 <br>
 
-#### API
-
-<br>
+## 🤹🏼 API
 
 `upath()` `=>` returns a proper file path depending on the host OS.
 
@@ -62,11 +61,11 @@ import { u } from '@igor.dvlpr/upath'
 
 Signature
 
-```js
+```ts
 upath(fsPath: string, addTrailingSlash: boolean = false): string
 ```
 
-```js
+```ts
 u(fsPath: string, addTrailingSlash: boolean = false): string
 ```
 
@@ -74,7 +73,7 @@ u(fsPath: string, addTrailingSlash: boolean = false): string
 
 Parameters
 
-```js
+```ts
 fsPath: string // a string that represents the path to process,
 
 addTrailingSlash: boolean = false
@@ -83,22 +82,10 @@ addTrailingSlash: boolean = false
 
 <br>
 
-#### Example - Any OS
-
-```js
-const { u } = require('@igor.dvlpr/upath')
-
-console.log(u()) // returns ''
-console.log(u('')) // returns ''
-console.log(u(null)) // returns ''
-```
-
-<br>
-
 #### Example - Windows OS
 
-```js
-const { u } = require('@igor.dvlpr/upath')
+```ts
+import { u } from '@igor.dvlpr/upath'
 
 console.log(u('C:/')) // returns 'C:\\'
 console.log(u('C:/WINDOWS//////')) // returns 'C:\\WINDOWS\\'
@@ -111,8 +98,8 @@ console.log(u('//ComputerName/SharedFolder')) // returns '\\\\ComputerName\\Shar
 
 #### Example - UNIX-like OS
 
-```js
-const { u } = require('@igor.dvlpr/upath')
+```ts
+import { u } from '@igor.dvlpr/upath'
 
 console.log(u('/mnt/')) // returns '/mnt/'
 console.log(u('/usr/bin/////////')) // returns '/usr/bin/'
@@ -128,7 +115,7 @@ console.log(u('\\\\ComputerName\\SharedFolder')) // returns '//ComputerName/Shar
 
 Signature
 
-```js
+```ts
 uw(fsPath: string, addTrailingSlash: boolean = false): string
 ```
 
@@ -136,7 +123,7 @@ uw(fsPath: string, addTrailingSlash: boolean = false): string
 
 Parameters
 
-```js
+```ts
 fsPath: string // a string that represents the path to process,
 
 addTrailingSlash: boolean = false
@@ -147,8 +134,8 @@ addTrailingSlash: boolean = false
 
 #### Example - Any OS
 
-```js
-const { uw } = require('@igor.dvlpr/upath')
+```ts
+import { uw } from '@igor.dvlpr/upath'
 
 console.log(uw('C:/WINDOWS/System32')) // returns 'C:\\WINDOWS\\System32'
 console.log(uw('//ComputerName/SharedFolder')) // returns '\\\\ComputerName\\SharedFolder'
@@ -161,7 +148,7 @@ console.log(uw('//ComputerName/SharedFolder')) // returns '\\\\ComputerName\\Sha
 
 Signature
 
-```js
+```ts
 ux(fsPath: string, addTrailingSlash: boolean = false): string
 ```
 
@@ -169,7 +156,7 @@ ux(fsPath: string, addTrailingSlash: boolean = false): string
 
 Parameters
 
-```js
+```ts
 fsPath: string // a string that represents the path to process,
 
 addTrailingSlash: boolean = false
@@ -180,8 +167,8 @@ addTrailingSlash: boolean = false
 
 #### Example - Any OS
 
-```js
-const { ux } = require('@igor.dvlpr/upath')
+```ts
+import { ux } from '@igor.dvlpr/upath'
 
 console.log(ux('/usr/local')) // returns '/usr/local'
 console.log(ux('\\\\ComputerName\\SharedFolder'))
@@ -196,3 +183,40 @@ console.log(ux('\\\\ComputerName\\SharedFolder'))
 > On Windows `slash = '\\'`.
 
 > On UNIX-like `slash = '/'`.
+
+---
+
+## 🪪 License
+
+Licensed under the MIT license which is available here, [MIT license](https://github.com/igorskyflyer/npm-upath/blob/main/LICENSE).
+
+---
+
+## 🧬 Related
+
+[]()
+
+> __
+
+[]()
+
+> __
+
+[]()
+
+> __
+
+[]()
+
+> __
+
+[]()
+
+> __
+
+<br>
+<br>
+
+>
+> Provided by **Igor Dimitrijević** ([*@igorskyflyer*](https://github.com/igorskyflyer/)).
+>
