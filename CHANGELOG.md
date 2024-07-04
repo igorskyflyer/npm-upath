@@ -4,6 +4,13 @@
 
 <br>
 
+## v3.0.1
+
+<p align="right"><em>04-Jul-2024</em></p>
+
+- **💻 dev**: upgrade dependencies
+
+<br>
 <br>
 
 ## v3.0.0
