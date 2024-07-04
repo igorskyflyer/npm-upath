@@ -1,6 +1,6 @@
 {
 	"name": "@igor.dvlpr/upath",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "🎍 Provides a universal way of formatting file-paths in Unix-like and Windows operating systems as an alternative to the built-in path.normalize(). 🧬",
 	"sideEffects": false,
 	"engines": {
@@ -39,7 +39,7 @@
 		"url": "https://github.com/igorskyflyer/npm-upath/issues"
 	},
 	"dependencies": {
-		"@igor.dvlpr/unc-path": "^2.1.2"
+		"@igor.dvlpr/unc-path": "^3.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
