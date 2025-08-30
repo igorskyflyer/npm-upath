@@ -1,6 +1,6 @@
 // Author: Igor Dimitrijević (@igorskyflyer)
 
-import { isValid } from '@igor.dvlpr/unc-path'
+import { isValid } from '@igorskyflyer/unc-path'
 import { platform } from 'node:os'
 
 // let's cache the pattern
@@ -12,37 +12,37 @@ const unixSlash: string = '/'
 export const slash: string = isWindows ? winSlash : unixSlash
 
 function transform(
-	pathSlash: string,
-	fsPath: string,
-	addTrailingSlash: boolean = false
+  pathSlash: string,
+  fsPath: string,
+  addTrailingSlash: boolean = false
 ): string {
-	if (!fsPath) {
-		return ''
-	}
+  if (!fsPath) {
+    return ''
+  }
 
-	const isUnc: boolean = isValid(fsPath)
+  const isUnc: boolean = isValid(fsPath)
 
-	const components: string[] = fsPath.split(pattern)
+  const components: string[] = fsPath.split(pattern)
 
-	if (components.length < 1) {
-		return ''
-	}
+  if (components.length < 1) {
+    return ''
+  }
 
-	if (isUnc) {
-		const uncPrefix: string = components[0]
+  if (isUnc) {
+    const uncPrefix: string = components[0]
 
-		if (uncPrefix.charAt(0) !== pathSlash) {
-			components[0] = pathSlash + uncPrefix
-		}
-	}
+    if (uncPrefix.charAt(0) !== pathSlash) {
+      components[0] = pathSlash + uncPrefix
+    }
+  }
 
-	fsPath = components.join(pathSlash)
+  fsPath = components.join(pathSlash)
 
-	if (addTrailingSlash && fsPath.charAt(fsPath.length - 1) !== pathSlash) {
-		fsPath += pathSlash
-	}
+  if (addTrailingSlash && fsPath.charAt(fsPath.length - 1) !== pathSlash) {
+    fsPath += pathSlash
+  }
 
-	return fsPath
+  return fsPath
 }
 
 /**
@@ -54,10 +54,10 @@ function transform(
  * **Note**: _u()_ is an alias of _upath()_.
  */
 export function upath(
-	fsPath: string,
-	addTrailingSlash: boolean = false
+  fsPath: string,
+  addTrailingSlash: boolean = false
 ): string {
-	return transform(slash, fsPath, addTrailingSlash)
+  return transform(slash, fsPath, addTrailingSlash)
 }
 
 /**
@@ -72,7 +72,7 @@ export { upath as u }
  * @see upath
  */
 export function uw(fsPath: string, addTrailingSlash: boolean = false): string {
-	return transform(winSlash, fsPath, addTrailingSlash)
+  return transform(winSlash, fsPath, addTrailingSlash)
 }
 
 /**
@@ -81,5 +81,5 @@ export function uw(fsPath: string, addTrailingSlash: boolean = false): string {
  * @see upath
  */
 export function ux(fsPath: string, addTrailingSlash: boolean = false): string {
-	return transform(unixSlash, fsPath, addTrailingSlash)
+  return transform(unixSlash, fsPath, addTrailingSlash)
 }
