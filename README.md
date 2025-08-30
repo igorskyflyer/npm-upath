@@ -210,11 +210,14 @@ console.log(ux('\\\\ComputerName\\SharedFolder'))
 <br>
 <br>
 
-✨ Since `v.1.0.3` a string property named `slash` is exposed as well, provides an easy way to access file path OS-specific delimiter.
-
+> 💡 **TIP**
+>
+> Since `v.1.0.3` a string property named `slash` is exposed as well, provides an easy way to access file path OS-specific delimiter.
+>
 > On Windows `slash = '\\'`.
-
+>
 > On UNIX-like `slash = '/'`.
+>
 
 <br>
 <br>
