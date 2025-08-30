@@ -84,7 +84,10 @@ npm i @igorskyflyer/upath
 
 <br>
 
-✨Note: `upath()` has an alias, named `u()` for your convenience.
+> ℹ️ **NOTE**
+>
+> `upath()` has an alias, named `u()` for your convenience.
+>
 
 <br>
 
