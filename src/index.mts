@@ -24,7 +24,7 @@ function transform(
 
   const components: string[] = fsPath.split(pattern)
 
-  if (components.length < 1) {
+  if (components.length === 0) {
     return ''
   }
 
