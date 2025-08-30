@@ -259,7 +259,7 @@ Licensed under the MIT license which is available here, [MIT license](https://gi
 
 > _✒ DúöScríbî allows you to convert letters with diacritics to regular letters. 🤓_
 
-[@igorskyflyer/node-clone-js](https://www.npmjs.com/package/@igorskyflyer/node-clone-js)
+[@igorskyflyer/clone](https://www.npmjs.com/package/@igorskyflyer/clone)
 
 > _🧬 A lightweight JavaScript utility allowing deep copy-by-value of nested objects, arrays and arrays of objects. 🪁_
 
